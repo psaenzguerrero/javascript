@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="" method="post">
+        <input type="text" placeholder="escribe aqui" class="Mensaje">
+        <input type="submit" placeholder="mandar" >
+    </form>
+    <p></p>
+    <script>
+        const palabra = document.querySelector("input .Mensaje");
+        const p = document.querySelector("p");
+        document.addEventListener("DOMContentLoaded",()=>{
+            if (palabra.minlength<1) {
+                
+                document.write("El texto es muy corto");
+            }else{
+                document.write("El texto es valido")
+            }
+        })
+    </script>
+</body>
+</html>

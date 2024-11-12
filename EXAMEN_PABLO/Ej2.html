@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const asignaturas = {
+            'Matemáticas': 60,
+            'Física': 45,
+            'Química': 53
+        };
+
+        
+        for (const key in asignaturas) {
+            document.write(key);
+            document.write(`<br>`);
+        }
+        
+        let suma = 0;
+        for (const key in asignaturas) {
+            suma += asignaturas[key];
+        }
+        document.write(suma);
+        document.write(`<br>`);
+
+        for (const key in asignaturas) {
+            asignaturas[key]=(asignaturas[key]*1.1).toFixed(2);
+            document.write(asignaturas[key]);
+            document.write(`<br>`);
+        }
+        
+        let array = Object.entries(asignaturas).sort((a,b)=>a[1]-b[1]);
+        console.log(array);
+        let obj = Object.entries(array);
+        console.log(obj);
+        for (const key in obj ){
+            document.write(key + ":" + obj[key]);
+        }
+
+        
+
+    
+        
+        
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

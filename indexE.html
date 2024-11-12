@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Api</title>
+    <link rel="stylesheet" href="https://bootswatch.com/5/vapor/bootstrap.min.css">
+    <style>
+        /* img{
+            max-width: 100%;
+            view-timeline: --efecto block;
+            animation-timeline: --efecto;
+            animation-name: animar;
+            animation-range: entry 20% cover 20%;
+        } */
+        @keyframes animar {
+            0%{
+                opacity: o;
+                scale: 0;
+            }
+            100%{
+                opacity: 1;
+                scale: 100%;
+            }
+        }
+        body{
+            scroll-behavior: smooth;
+        }
+        .col-md-4{
+            view-timeline: --efecto block;
+            animation-timeline: --efecto ;
+            animation-name: animar;
+            animation-fill-mode: both;
+            animation-range: entry 20% cover 50%;
+        }
+        div.flecha a{
+            background-color: transparent !important;
+            position: fixed;
+            right: 10px;
+            bottom: 10px;
+            transition: opacity 1s;
+            opacity: 0;
+            z-index: 1;
+        }
+        
+    </style>
+</head>
+<body id="top">
+    <div class="flecha">
+        <a href="#top" class="btn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-up" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M8 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 2.707V14.5a.5.5 0 0 0 .5.5"/>
+            </svg>
+        </a>
+    </div>
+   <div class="container my-5">
+    <div class="row col-md-6">
+        <select class="form-control p-3">
+            <option value="vapor">Selcionar un tema</option>
+            <option value="cosmo">cosmo</option>
+            <option value="lux">lux</option>
+            <option value="lumen">lumen</option>
+            <option value="cyborg">cyborg</option>
+        </select>
+    </div>
+   </div>
+    <script src="datos.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded",() =>{
+            //DECLARAR VARIABLES
+            const container = document.createElement("div");
+            const row = document.createElement("div");
+
+            //CREA CONTAINER, ROW + AÑADIR SUS CLASES
+            container.setAttribute("class", "container text-center my-5");
+            row.setAttribute("class", "row");
+
+            //METER ROW DENTRO DEL CONTAINER
+            container.append(row);
+
+            //RENDER DE DATOS
+            users.forEach( usuario => {
+                let divCol = document.createElement("div");
+                    divCol.setAttribute("class","col-md-4");
+
+                    divCol.innerHTML=`
+                        <div class="card text-white bg-primary mb-3">
+
+                            <div class="card-header">
+                                <img src="${usuario.image}" alt="1" class="img-fluid">
+                            </div>
+
+                            <div class="card-body">
+
+                                <h4 class="card-title">${usuario.firstName}</h4>
+
+                                <div class="card-text">
+                                    <h4>${usuario.email}</h4>
+                                    <h4>${usuario.phone}</h4>
+                                </div>
+
+
+                            </div>
+                        </div>
+                            
+                       
+                    `;
+                    row.append(divCol);
+            });
+
+            //AÑADIR BUSCADOR
+
+            let input = document.createElement("input");
+            input.setAttribute("class","form-control my-5 p-4 rounded-4");
+            input.setAttribute("type","search");
+            input.setAttribute("placeholder","Bucar Robot");
+            container.prepend(input);
+
+            //AL FINAL
+            document.body.append(container);
+
+            //BUSCADOR FUNCIONALIDAD
+
+            // let buscador = document.querySelector("input[type='search']")
+            let nombresRobot = document.querySelectorAll("h4.card-title");
+
+            input.addEventListener("input", (e) =>{
+                let buscado = e.target.value.toLocaleLowerCase();
+                nombresRobot.forEach(nombre=>{
+                    let nodoMD = nombre.closest('.col-md-4');
+                    if (!nombre.textContent.toLocaleLowerCase().includes(buscado)) {
+                        nodoMD.style.display = "none";
+                    }else{
+                        nodoMD.style.display = "block";
+                    }
+                });
+                
+            });
+            const selectTema = document.querySelector("select");
+            selectTema.addEventListener("change", (e)=>{
+                console.log(e.target.value);
+                let tema = e.target.value;
+                document.querySelector("link").href=`https://bootswatch.com/5/${tema}/bootstrap.min.css`
+            });
+            const btnFlecha = document.querySelector("div.flecha a");
+            const mediaAlturaPantalla = window.innerHeight/2;
+            window.addEventListener("scroll", ()=>{
+                if (condition) {
+                    btnFlecha.style.opacity = "0";
+                } else {
+                    btnFlecha.style.opacity = "1";
+                }
+            })
+        });
+
+    </script>
+</body>
+</html>

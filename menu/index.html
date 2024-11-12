@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MENU HAMBURGUESA</title>
+    <style>
+
+        /* GENERAL */
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* BOTONES */
+        a{
+            text-decoration: none;
+            margin: 20px;
+            padding: 6%;
+            color: black;
+            text-transform: uppercase;
+            text-align: center;
+            font-weight: bold;
+            &:nth-child(2){
+                margin-top: 50px;
+            }
+            &:hover{
+                background-color: black;
+                color: white;
+                border-radius: 10%; 
+                width: 100%;
+                transition: 0.5s;
+            }
+        }
+
+        /* Etiqueta para el estilo de la caligrafia */
+        body{
+            font-size: 15px;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        /* Css anidado de la estructura del header */
+        header#header{
+            padding: 50px;
+            box-shadow: 0 0 10px black;
+            div.brand{
+                h1{
+                    font-size: 2rem;
+                    span{
+                        color: royalblue;
+                    }
+                }
+            }
+
+            nav.nav{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+
+                .menu-toggle{
+                    display: none;
+                }
+
+                .menu-button,.close-button{
+                    font-size: 2rem;
+                    background-color: transparent;
+                    border: none;
+                    cursor: pointer;
+                }
+
+                div.menu{
+
+                    button{
+                        font-size: 2rem;
+                        background-color: transparent;
+                        border: none;
+                    }
+                    div.navbar{
+                        display: flex;
+                        align-items: end;
+                        flex-flow: column;
+                        min-height: 100vh;
+                        min-width: 20%;
+                        padding: 20px;
+                        background-color: yellow;
+                        position: fixed;
+                        top: 0;
+                        left: 100%;
+                        z-index: 999;
+                        transition: left 0.5s;
+                    } 
+                }
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Estructura basica de html -->
+    <header id="header">
+        <nav class="nav">
+            <div class="brand">
+                <h1>
+                    <span>X</span>promt
+                </h1>
+            </div>
+            <div class="menu">
+                <input type="checkbox" id="menu-toggle" class="menu-toggle">
+                <label for="menu-toggle" class="menu-button">
+                    &#x268C;
+                </label>
+                <div class="navbar">
+
+                    <label for="menu-toggle" class="close-button">
+                        &#10006;
+                    </label>
+                    <a href="#">Servicio</a>
+                    <a href="#">Proyecto</a>
+                    <a href="#">Soporte</a>
+                    <a href="#">Contacto</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <script>
+
+        document.addEventListener("DOMContentLoaded",()=>{
+
+            //Abrir el navbar dandole al icono 
+            let abrir = document.querySelector(".menu-button");
+
+            abrir.addEventListener("click",()=>{
+
+                let m = document.querySelector("div.navbar");
+    
+                //Ajustamos el menu a full screen si el tamaño de la pantalla en la que se esta viendo es muy pequeño
+                if(window.innerWidth > 650){
+                    m.style.left = "80%";
+                    m.style.width = "10%"
+                }else{
+                    m.style.left = "0%";
+                    m.style.width="100%"
+                }
+            });  
+
+            //Cerrar el navbar cuando el usuario le da a la X
+            let cerrar = document.querySelector(".close-button");
+            
+            cerrar.addEventListener("click",()=>{
+
+                let t = document.querySelector("div.navbar");
+                t.style.left= "100%";
+            });
+
+            //Cerrar el navbar cuando el raton sale del navbar
+            let cerrar2 = document.querySelector("div.navbar");
+
+            cerrar2.addEventListener("mouseleave",()=>{
+
+                let z = document.querySelector("div.navbar");
+                z.style.left= "100%";
+            }); 
+        });  
+    </script>
+</body>
+</html>

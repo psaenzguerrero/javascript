@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <img src="./descarga.jfif" alt="">
+        <button class="mas" id="mayor"></button>
+        <button class="menos" id="menor"></button>
+    </div>
+    <script>
+        const bo = document.querySelector("button.mas");
+        bo.textContent="zoom+";
+        const bo2 = document.querySelector("button.menos");
+        bo2.textContent="zoom-";
+
+        document.addEventListener("DOMContentLoaded", ()=>{
+            mayor.addEventListener("click",aumentar);
+            menor.addEventListener("click",decrecer);
+        })
+        function aumentar(e){
+
+        }
+        let mayor = document.getElementById(mayor);
+        function decrecer(e){
+
+        }
+        let menor = document.getElementById(menor);
+    </script>
+</body>
+</html>

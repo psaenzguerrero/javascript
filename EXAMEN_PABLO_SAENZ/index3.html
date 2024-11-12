@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="" method="post">
+        <input type="text" placeholder="escribe aqui">
+        <input type="submit" placeholder="mandar" class="M">
+    </form>
+    
+    <div class="c1">
+        <ul>
+
+        </ul>
+    </div>
+    <script>
+        const arr = ["Antonio","Jose","Ana","Jorge"];
+        const lista = document.querySelector("div.c1");
+        const linea = document.querySelector("ul");
+        const palabra = document.querySelector("input");
+        palabra.minLength=2;
+
+        document.addEventListener("DOMContentLoaded",()=>{
+            
+            if (palabra.len) {
+                busca(palabra);
+            }
+            
+        })
+        function busca(palabra) {
+            lista.append("ul");
+            arr.forEach(nombre => {   
+                if (palabra[0] == nombre[0]) {
+                    linea.append("li");
+                    li.textContent=nombre;
+                }else{
+                    document.write("No existe ningun nombre que empiece por esa letra");
+                }
+            });
+        }
+    
+    
+    </script>
+</body>
+</html>

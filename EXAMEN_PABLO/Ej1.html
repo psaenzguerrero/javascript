@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let array = ["gato", "perro", "pez", "ave"];
+        array.forEach(element => {
+            console.log(element);
+        });
+        let array2 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+        array2.forEach(element => {
+            if(element%2 == 0){
+                console.log(element);
+            }
+        });
+        let array3 = ["manzana", "banana", "cereza"];
+        let arraux = [];
+        array3.forEach(element => {
+            arraux.push(element.toUpperCase());
+        });
+        arraux.forEach(element => {
+            console.log(element);
+        });
+        let array4 = [10, 20, 30, 40, 50];
+        let suma = 0;
+        array4.forEach(element => {
+            suma += element;
+        });
+        console.log(suma);
+        let obj = {
+            nombre: "Juan",
+            apellido: "López",
+            edad: 25
+        };
+        document.write("<ul>");
+        for (const key in obj) {
+            document.write(`<li>${key}: ${obj[key]}</li>`);
+        }
+        document.write("</ul>");
+
+        let array5 = [
+            {
+                nombre: "Ana",
+                apellido: "López"
+            }, 
+            {
+                nombre: "Luis",
+                apellido: "Gómez"
+            }
+        ];
+        let nombre = array5.map(
+            array5 => array5.nombre+" "+array5.apellido
+        );
+        console.log(nombre);
+        for (const element of nombre) {
+            document.write(element);
+            document.write(`<br>`);
+        }
+
+        let array6 = ["Hola", "mundo", "desde", "JavaScript"];
+        let frase = array6.join(" "); 
+        document.write(frase);
+        document.write(`<br>`);
+
+        let array7 = [15, 40, 25, 60, 70];
+        let numeros = array7.filter(array7=>array7>50);
+        document.write(`Este es un numero mayor de 50 : ${numeros}`);
+        document.write(`<br>`);
+
+        let array8 = [
+            {
+                producto: "camisa",
+                precio: 15
+            }, 
+            {
+                producto: "pantalón",
+                precio: 25
+            }, 
+            {
+                producto: "zapatos",
+                precio: 50
+            }
+        ];
+        //revisar
+        let maximo = ["",0];
+        maximo = array8.forEach(element => {
+            if(maximo<= element){
+                    maximo == element;
+                }
+        });
+        document.write(maximo);
+
+        
+    </script>
+</body>
+</html>

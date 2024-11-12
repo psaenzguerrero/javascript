@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const preciosFrutas = {
+            'Plátano': 1.35,
+            'Manzana': 0.80,
+            'Pera': 0.85,
+            'Naranja': 0.70
+        };
+        for (const key in preciosFrutas) {
+            preciosFrutas[key]=(preciosFrutas[key]*1.1).toFixed(2);
+            document.write(preciosFrutas[key]);
+            document.write(`<br>`);
+        }
+        document.write(`<br>`);
+        for (const key in preciosFrutas) {
+            preciosFrutas[key]=(preciosFrutas[key]*7).toFixed(2);
+            document.write(preciosFrutas[key]);
+            document.write(`<br>`);
+        }
+        let array = Object.entries(preciosFrutas);
+        console.log(array);
+
+        array2 = array.filter(array => array>1);
+        console.log(array2);
+    </script>
+</body>
+</html>

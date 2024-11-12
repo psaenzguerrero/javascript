@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let frutas = {
+            'platano': 1.35,
+            'Manzana': 0.80,
+            'Pera': 0.85,
+            'Naranja': 0.70,
+        }
+
+        document.write("<table border ='1'>");
+        document.write("<tr><th>Fruta</th><th>Precio</th></tr>");
+        for (let fruta in frutas) {
+            document.write("<tr>");
+            document.write(`<td>${fruta}</td><td>${frutas[fruta]}</td>`);
+            document.write("</tr>");
+        }
+        document.write("</table>");
+
+        function iva() {
+            document.write("<br>");
+            document.write("<table border ='1'>");
+            document.write("<tr><th>Fruta</th><th>Precio del Kg</th></tr>");
+            for (let fruta in frutas) {
+                document.write("<tr>");
+                document.write("<td>" + fruta + "</td><td>" + (frutas[fruta] * 1.10).toFixed(2) + "</td>");
+                document.write("</tr>");
+            }
+            document.write("</table>");
+        }
+        iva();
+
+        let kilos = 32;
+        let fruti = "manzana";
+        let cont = 0;
+        function cobrar(fruti, kilos) {
+            
+            document.write("<br>");
+            for (let fruta in frutas) {
+                if (fruta.toLowerCase() === fruti.toLowerCase()) {
+                    let pagar = (kilos * frutas[fruta]).toFixed(2);
+                    return document.write(`Para la ${fruta}, por ${kilos} kilos hay que pagar ${pagar}`);
+                    break;
+                } else {
+                    cont++;
+                }
+            }
+            if (cont == Object.keys(frutas).length) {
+                document.write("Notenemos esa fruta aqui.");
+            }
+        }
+        document.write(cobrar(fruti, kilos));
+        document.write("<br>");
+        
+        function menorP(frut) {
+            frut = Object.entries(frutas);
+            frut = frut.sort((a, b) => a[1] - b[1]);
+            return document.write(frut[0][0] + " precio " + frut[0][1]);
+        }
+        menorP(frutas);
+    </script>
+</body>
+
+</html>
